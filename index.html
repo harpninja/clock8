@@ -1,57 +1,91 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset='utf-8'>
-		<title>8-bit clock</title>
-		<style>
-		</style>
-	</head>
-	<body>
-		<div id='clock8'>
-			<!-- hours -->
-        		<img id='h1' src='images/0.png'>
-        		<img id='h2' src='images/0.png'>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<head>
+	<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 8pt;
+				line-height: 12pt;
+				background: #ffffff;
+				color: #222222;
+				margin: 20px;
+			}
 
-        		<!-- colon separator -->
-        		<img id='colon1' src='images/colon.png'>
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Open Sans', sans-serif;
+			}
+		
+			.link {
+			  fill: none;
+			  stroke: #555;
+			  stroke-opacity: 0.4;
+			  stroke-width: 1.5px;
+			}
+			.standard {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 9pt;
+				line-height: 12pt;
+				background: #ffffff;
+				color: #222222;
+				margin: 20px;
+			}
+	</style>
+</head>
+<body>
+	<h1>8-bit clock</h1>
+	<div class='standard'>
+		<p>
+			<a href='https://github.com/harpninja/clock8'>Code on GitHub</a>
+		</p>
+	</div>
+	<div id='clock8'>
+	 	<!-- hours -->
+        <img id='h1' src='images/0.png'>
+        <img id='h2' src='images/0.png'>
 
-        		<!-- minutes -->
-        		<img id='m1' src='images/0.png'>
-        		<img id='m2' src='images/0.png'>
+        <!-- colon separator -->
+        <img id='colon1' src='images/colon.png'>
 
-        		<!-- colon separator -->
-       			<img id='colon2' src='images/colon.png'>
+        <!-- minutes -->
+        <img id='m1' src='images/0.png'>
+        <img id='m2' src='images/0.png'>
 
-        		<!-- seconds -->
-        		<img id='s1' src='images/0.png'>
-        		<img id='s2' src='images/0.png'>
-		</div>
-		<script>
-			/**
-			 * Gets the current time and displays it as images.
-			 */
-			const getTime = () => {
-				const now = new Date();
-				let hours = now.getHours();
-				let minutes = now.getMinutes();
-				let seconds = now.getSeconds();
+        <!-- colon separator -->
+       	<img id='colon2' src='images/colon.png'>
 
-				// add 0 to start of single digit numbers
-				hours = String(hours).padStart(2, '0');
-				minutes = String(minutes).padStart(2, '0');
-				seconds = String(seconds).padStart(2, '0');
+        <!-- seconds -->
+        <img id='s1' src='images/0.png'>
+        <img id='s2' src='images/0.png'>
+	</div>
+	<script>
+		/**
+		 * Gets the current time and displays it as images.
+		 */
+		const getTime = () => {
+			const now = new Date();
+			let hours = now.getHours();
+			let minutes = now.getMinutes();
+			let seconds = now.getSeconds();
 
-				// update images
-				document.getElementById('h1').src = `images/${hours[0]}.png`;
-				document.getElementById('h2').src = `images/${hours[1]}.png`;
-				document.getElementById('m1').src = `images/${minutes[0]}.png`;
-				document.getElementById('m2').src = `images/${minutes[1]}.png`;
-				document.getElementById('s1').src = `images/${seconds[0]}.png`;
-				document.getElementById('s2').src = `images/${seconds[1]}.png`;
-			};
-			getTime();
-			setInterval(getTime, 1000);
-		</script>	
-	</body>
+			// add 0 to start of single digit numbers
+			hours = String(hours).padStart(2, '0');
+			minutes = String(minutes).padStart(2, '0');
+			seconds = String(seconds).padStart(2, '0');
+
+			// update images
+			document.getElementById('h1').src = `images/${hours[0]}.png`;
+			document.getElementById('h2').src = `images/${hours[1]}.png`;
+			document.getElementById('m1').src = `images/${minutes[0]}.png`;
+			document.getElementById('m2').src = `images/${minutes[1]}.png`;
+			document.getElementById('s1').src = `images/${seconds[0]}.png`;
+			document.getElementById('s2').src = `images/${seconds[1]}.png`;
+		};
+		getTime();
+		setInterval(getTime, 1000);
+	</script>	
+</body>
 </html>
 
 
